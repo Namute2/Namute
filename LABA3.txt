@@ -1,0 +1,315 @@
+\#include <stdio.h>
+#include <cstdlib>
+
+int b[100];
+int sum;
+int excl_num;
+int input_array() {
+	int num_case, n = 0;
+	printf("Enter case number (1 for random array/2 for array input)");
+	while (scanf_s("%d", &num_case) != 1)
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	printf("Enter the amount of elements of array");
+	while (scanf_s("%d", &excl_num) != 1 || excl_num < 0 || excl_num > 100)
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}	switch (num_case) {
+	case 1: for (n = 0; n < excl_num; n++)
+		for (n = 0; n < excl_num; n++)
+			b[n] = (float)rand() / 201 - 100;
+		break;
+	case 2: for (n = 0; n < excl_num; n++)
+		while (scanf_s("%d", &b[n]) != 1 || getchar() != '\n')
+		{
+			printf("Wrong input.\n");
+			rewind(stdin);
+		}
+		  break;
+	default:
+		printf("Wrong input");
+		break;
+	}
+	for (n = 0; n < excl_num; n++) {
+		printf("%d", b[n]);
+		printf("\n");
+	}
+	return b[n];
+}
+
+int max_array() {
+	int n, k;
+	k = b[0];
+	for (n = 0; n <= excl_num; n++)
+	{
+		if (k < b[n])
+			k = b[n];
+	}
+	printf("%d", k);
+	printf("\n");
+	return 0;
+}
+
+int sum_array() {
+	int q, n;
+	for (n = 0; n < excl_num; n++)
+	{
+		if (b[n] > 0)
+		{
+			q = n;
+		}
+	}
+
+	for (n = 0; n < q; n++)
+	{
+		sum += b[n];
+	}
+	return sum;
+}
+
+int main() {
+	input_array();
+	max_array();
+	sum_array();
+	printf("%d", sum);
+	return 0;
+}
+
+=============================================
+#include <stdio.h>
+#include <cstdlib>
+#include <time.h>
+
+int excl_num;
+int n = 0;
+int k = 0;
+int b[100];
+int input_array() {
+	int num_case, n = 0;
+	printf("Enter case number (1 for random array/2 for array input)");
+	while (scanf_s("%d", &num_case) != 1 || getchar() != '\n')
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	printf("Enter the amount of elements of array");
+	while (scanf_s("%d", &excl_num) != 1 || getchar() != '\n' || excl_num < 0 || excl_num > 100)
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	switch (num_case) {
+	case 1: for (n = 0; n < excl_num; n++)
+		for (n = 0; n < excl_num; n++)
+			b[n] = (float)rand() / 201 - 100;
+		break;
+	case 2: for (n = 0; n < excl_num; n++)
+		while (scanf_s("%d", &b[n]) != 1 || getchar() != '\n')
+		{
+			printf("Wrong input.\n");
+			rewind(stdin);
+		}
+		  break;
+	default:
+		printf("Wrong input");
+		break;
+	}
+	for (n = 0; n < excl_num; n++) {
+		printf("%d", b[n]);
+		printf("\n");
+	}
+	return b[n];
+}
+
+int func1() {
+	for (n = 0; n < excl_num + k; n++)
+	{
+		if (b[n] < 0)
+		{
+			k++;
+			for (int j = excl_num + k - 1; j > n; j--)
+			{
+				b[j] = b[j - 1];
+			}b[n] = b[n + 1];
+			n++;
+		}
+	}
+	return 0;
+}
+
+int main() {
+	int n;
+	srand(time(NULL));
+	input_array();
+	func1();
+	printf("\n");
+	for (n = 0; n < excl_num + k; n++) {
+		printf("%d", b[n]);
+		printf("\n");
+	}
+	return 0;
+}
+
+=====================================================
+
+#include <stdio.h>
+#include <cstdlib>
+
+int excl_num;
+int b[100];
+int a[100];
+int c[100];
+int excl_num2;
+int input_array() {
+	int num_case, n = 0;
+	printf("Enter case number (1 for random array/2 for array input) = ");
+	while (scanf_s("%d", &num_case) != 1 || getchar() != '\n')
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	printf("Enter the amount of elements of array = ");
+	while (scanf_s("%d", &excl_num) != 1 || getchar() != '\n' || excl_num < 0 || excl_num > 100)
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	switch (num_case) {
+	case 1: for (n = 0; n < excl_num; n++)
+		for (n = 0; n < excl_num; n++)
+			b[n] = (float)rand() / 201 - 100;
+		break;
+	case 2: for (n = 0; n < excl_num; n++)
+		while (scanf_s("%d", &b[n]) != 1|| getchar() != '\n')
+		{
+			printf("Wrong input.\n");
+			rewind(stdin);
+		}
+		  break;
+	default:
+		printf("Wrong input");
+		break;
+	}
+	for (n = 0; n < excl_num; n++) {
+		printf("%d", b[n]);
+		printf("\n");
+	}
+	return b[n];
+}
+
+int input_array2() {
+	int num_case, n = 0;
+	printf("Enter case number (1 for random array/2 for array input) = ");
+	while (scanf_s("%d", &num_case) != 1 || getchar() != '\n')
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	printf("Enter the amount of elements of array = ");
+	while (scanf_s("%d", &excl_num2) != 1 || getchar() != '\n' || excl_num < 0 || excl_num > 100)
+	{
+		printf("Wrong input.\n");
+		rewind(stdin);
+	}
+	switch (num_case) {
+	case 1: for (n = 0; n < excl_num2; n++)
+		for (n = 0; n < excl_num2; n++)
+			a[n] = (float)rand() / 201 - 100;
+		break;
+	case 2: for (n = 0; n < excl_num2; n++)
+		while (scanf_s("%d", &a[n]) != 1 || getchar() != '\n')
+		{
+			printf("Wrong input.\n");
+			rewind(stdin);
+		}
+		  break;
+	default:
+		printf("Wrong input");
+		break;
+	}
+	for (n = 0; n < excl_num2; n++) {
+		printf("%d", a[n]);
+		printf("\n");
+	}
+	return a[n];
+}
+
+int arr_concat() {
+	int n;
+	for (n = 0; n < excl_num; n++) {
+		c[n] = b[n];
+	}
+	for (n = excl_num; n < excl_num2 + excl_num; n++) {
+		c[n] = a[n - excl_num];
+	}
+	return c[n];
+}
+
+int arr_sort1() {
+	int n = 0;
+	for (n = 1; n < excl_num ; n++) {
+		if (b[n] < b[n - 1]) {
+			b[n - 1] = b[n - 1] + b[n];
+			b[n] = b[n - 1] - b[n];
+			b[n - 1] = b[n - 1] - b[n];
+			n = 0;
+		}
+	}
+	return b[n];
+}
+int arr_sort2() {
+	int n = 0;
+	for (n = 1; n < excl_num + excl_num2; n++) {
+		if (a[n] < a[n - 1]) {
+			a[n - 1] = a[n - 1] + a[n];
+			a[n] = a[n - 1] - a[n];
+			a[n - 1] = a[n - 1] - a[n];
+			n = 0;
+		}
+	}
+	return a[n];
+}
+int arr_sort3() {
+	int n = 0;
+	for (n = 1; n < excl_num2; n++) {
+		if (c[n] < c[n - 1]) {
+			c[n - 1] = c[n - 1] + c[n];
+			c[n] = c[n - 1] - c[n];
+			c[n - 1] = c[n - 1] - c[n];
+			n = 0;
+		}
+	}
+	return c[n];
+}
+
+int main() {
+	int n;
+	input_array();
+	input_array2();
+	arr_concat();
+	arr_sort1();
+	printf("\n");
+	printf("array1");
+	printf("\n");
+	for (n = 0; n < excl_num; n++) {
+		printf("%d", b[n]);
+		printf("\n");
+	}
+	printf("\n");
+	printf("array2");
+	printf("\n");
+	for (n = 0; n < excl_num2; n++) {
+		printf("%d", a[n]);
+		printf("\n");
+	}
+	arr_sort3();
+	printf("Third arr");
+	printf("\n");
+	for (n = 0; n < excl_num + excl_num2; n++) {
+		printf("%d", c[n]);
+		printf("\n");
+	}
+}
